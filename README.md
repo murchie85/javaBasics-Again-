@@ -20,7 +20,8 @@
     - `javac myProg.java` then
     - `java nameOfMyEntryClassWithMainInIt` and ignore the .java  
 - Two classes in same file means only one can have **public**
-
+- If you have multiple files imported, you need to compile them all at the same time
+    `javac BankAccount.java SavingsAccount.java CheckingAccount.java`
 
 
 ## Specifics

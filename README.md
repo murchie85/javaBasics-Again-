@@ -9,7 +9,9 @@
 
 ## General Notes  
 
-- **TO RUN** the code, you need to first `javac myProg.java` then `java nameOfMyEntryClassWithMainInIt` and ignore the .java  
+- **TO RUN** the code, you need to first 
+    - `javac myProg.java` then
+    - `java nameOfMyEntryClassWithMainInIt` and ignore the .java  
 - Two classes in same file means only one can have **public**
 
 

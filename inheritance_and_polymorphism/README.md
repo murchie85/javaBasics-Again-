@@ -95,5 +95,53 @@ Above solves it but not ideal, better is just to have a method Override that doe
 
 
 
+## OBJECTIVE  
+
+## BankAccount Class Hierarchy
+
+We'll have a base `BankAccount` class and two subclasses, `SavingsAccount` and `CheckingAccount`. Here are the requirements:
+
+#### `BankAccount` Class
+
+The base `BankAccount` class should have the following properties:
+
+- `balance`: a double representing the account's balance
+- `accountNumber`: a String representing the account number
+
+The base `BankAccount` class should have the following methods:
+
+- `deposit(double amount)`: Adds the specified amount to the account balance
+- `withdraw(double amount)`: Subtracts the specified amount from the account balance
+- `getBalance()`: Returns the current account balance
+- `getAccountNumber()`: Returns the account number
+
+#### `SavingsAccount` Class
+
+The `SavingsAccount` class should extend the `BankAccount` class and have an additional property:
+
+- `interestRate`: a double representing the annual interest rate (as a percentage)
+
+The `SavingsAccount` class should have the following additional methods:
+
+- `applyInterest()`: Applies the interest to the account balance (once per year)
+
+#### `CheckingAccount` Class
+
+The `CheckingAccount` class should extend the `BankAccount` class and have an additional property:
+
+- `overdraftLimit`: a double representing the maximum amount the account can be overdrawn
+
+The `CheckingAccount` class should override the `withdraw()` method to ensure that the withdrawal does not exceed the overdraft limit.
+
+Once you have implemented these classes, create a `BankTest` class with a `main()` method that demonstrates the following:
+
+- Create a `SavingsAccount` and a `CheckingAccount`.
+- Deposit and withdraw money from both accounts, and apply interest to the `SavingsAccount`.
+- Print the account balances and account numbers.
+- Use a for-each loop to iterate through an array of `BankAccount` objects containing both the `SavingsAccount` and `CheckingAccount` instances and print their account numbers and balances.
+
+Remember to use inheritance and method overriding where appropriate.
+
+
 
 

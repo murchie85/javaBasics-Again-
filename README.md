@@ -2,8 +2,14 @@
 
 ![](image.png)
 
-
+## RELATED LINKS 
+  
 - [springboot_logapp](https://github.com/murchie85/springboot_logapp)
+
+
+## General Notes  
+
+- Two classes in same file means only one can have **public**
 
 ## Constructor 
 

@@ -22,6 +22,8 @@
 - Two classes in same file means only one can have **public**
 - If you have multiple files imported, you need to compile them all at the same time
     `javac BankAccount.java SavingsAccount.java CheckingAccount.java`
+- If you have all java files at same level you don't need import statements
+
 
 
 ## Specifics
@@ -59,6 +61,34 @@ Set methods that don't return anything must have `void` as the type
     }
 ```
 
+
+## Super 
+
+- If extending you need to construct parent variables even if you don't use them
+```java
+
+package com.example.bank;
+
+public class CheckingAccount extends BankAccount{
+    public double overdraftLimit;
+
+    // you HAVE TO construct all parent variables even if you don't use them 
+    public CheckingAccount(double balance, String accountNumber, double overdraftLimit){
+        super(balance, accountNumber);
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    @Override
+    public void withdraw(double amount){
+        double balance = getBalance();
+        if(balance-amount >= overdraftLimit){
+            super.withdraw(amount);
+        } else{
+            System.out.println("withdrawal Denied: Exceeds overdraftLimit.");
+        }
+    }
+}
+```
 
 
 ## Learning Curriculum

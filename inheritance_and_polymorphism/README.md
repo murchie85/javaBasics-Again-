@@ -1,5 +1,17 @@
 # Inheritance and polymorphism
 
+In this module, you learned about:
+
+- **Inheritance**: You learned about inheritance, which is a mechanism in object-oriented programming that allows one class to inherit the fields and methods of another class. You used the `extends` keyword to create subclasses that inherit from a superclass.
+- **Method Overriding**: You learned about method overriding, which is a technique that allows a subclass to provide a new implementation for a method that is already defined in its superclass. This is done to change or extend the behavior of the superclass method in the subclass.
+- **Polymorphism**: You learned about polymorphism, which is the ability of objects of different classes to be treated as objects of a common superclass. You demonstrated this by creating an array of objects of different classes and using a loop to call their respective methods.
+- **Abstract Classes**: You learned about abstract classes, which are classes that cannot be instantiated and are meant to be subclassed by other classes. You used the `abstract` keyword to define an abstract class and its abstract methods, which must be implemented by any non-abstract subclass.
+
+# Challenges
+
+You worked on various challenges, such as creating a banking system with different account types and creating an animal hierarchy with sound-making methods, to practice your understanding of inheritance and polymorphism.
+
+
 **Inheritance** 
 
 use the `@Override` convention.  

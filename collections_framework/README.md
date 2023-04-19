@@ -26,6 +26,22 @@ public class ArrayListExample {
 ```  
 
 
+Accessing an element 
+
+
+```java
+
+existingClass(){
+	
+        // Access an element by its index
+        String secondName = names.get(1); // The index is 0-based, so 1 refers to the second element
+        System.out.println("The second name in the list is: " + secondName);
+
+        }
+```
+
+
+
 ## LinkedList
 
 A `LinkedList` is a doubly-linked list implementation of the `List` interface. It also stores elements in a specific order but uses a different internal data structure than `ArrayList`. Each element in a `LinkedList` is a node that contains a reference to the previous and next nodes in the list. `LinkedList` provides fast insertion and removal of elements at the beginning or end but slower access to elements by index compared to `ArrayList`.
@@ -49,6 +65,14 @@ public class LinkedListExample {
 
 ```
 
+
+- Use LinkedList when you need fast insertion or deletion of elements at the beginning or end of the list.
+- Use LinkedList when you do not need frequent access to elements by index.
+- Use LinkedList when you need to access the list concurrently from multiple threads.
+- Do not use LinkedList when performance is a critical concern, and you need to frequently access elements by index.
+
+
+
 ## HashSet 
 
 A `HashSet` is an implementation of the `Set` interface. It stores unique elements in no particular order. Internally, it uses a `HashMap` to store elements as keys. If you need to ensure that you have no duplicate elements in a collection and don't care about the order, a `HashSet` is an excellent choice.
@@ -70,6 +94,8 @@ public class HashSetExample {
 }
 ```
 
+Not **thread safe**
+
 ## hashMap
 
 A `HashMap` is an implementation of the `Map` interface. It stores key-value pairs, where each key can map to at most one value. The keys in a `HashMap` are unique, and it uses a hash table for storage, which provides fast insertion, removal, and retrieval of elements. If you need to store data in key-value pairs and quickly access values by their keys, a `HashMap` is a great option.
@@ -85,14 +111,19 @@ public class HashMapExample {
         ages.put("Alice", 30);
         ages.put("Bob", 25);
 
+        // Accessing a value by key
+        int aliceAge = ages.get("Alice");
+        System.out.println("Alice's age is " + aliceAge);
+
         for (String name : ages.keySet()) {
-            System.out.println(name + " is " + ages.get(name) + " years old.");
+            System.out.println(name + " is " + ages.get(name) + " years old");
         }
     }
 }
 
 ```
 
+Not **thread safe**
 
 ## Map (not to be confused with the map datastruct/interface)
 

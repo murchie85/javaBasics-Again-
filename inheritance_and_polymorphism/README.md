@@ -7,6 +7,84 @@ In this module, you learned about:
 - **Polymorphism**: You learned about polymorphism, which is the ability of objects of different classes to be treated as objects of a common superclass. You demonstrated this by creating an array of objects of different classes and using a loop to call their respective methods.
 - **Abstract Classes**: You learned about abstract classes, which are classes that cannot be instantiated and are meant to be subclassed by other classes. You used the `abstract` keyword to define an abstract class and its abstract methods, which must be implemented by any non-abstract subclass.
 
+
+## Example 
+
+let's consider a simple example involving geometric shapes. We'll create a base class Shape and two subclasses Rectangle and Circle. The Shape class will have a method to calculate the area, which will be overridden in each subclass. We will then create an array of Shape objects, containing both Rectangle and Circle objects, and use polymorphism to calculate their areas.
+
+Here's the base class Shape:
+
+```java
+public abstract class Shape {
+    public abstract double getArea();
+}
+
+```
+
+Now, let's create the Rectangle class that extends Shape:
+
+```java
+public class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+}
+```
+
+And the Circle class that also extends Shape:
+
+
+```java
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+```
+
+Now we can create a TestShapes class to test our implementation using polymorphism:
+
+```java
+public class TestShapes {
+    public static void main(String[] args) {
+        Shape[] shapes = new Shape[3];
+
+        shapes[0] = new Rectangle(5, 7);
+        shapes[1] = new Circle(3);
+        shapes[2] = new Rectangle(2, 4);
+
+        for (Shape shape : shapes) {
+            System.out.println("Area of the shape: " + shape.getArea());
+        }
+    }
+}
+
+```
+
+
+
+
+
+
+
+
 # Challenges
 
 You worked on various challenges, such as creating a banking system with different account types and creating an animal hierarchy with sound-making methods, to practice your understanding of inheritance and polymorphism.

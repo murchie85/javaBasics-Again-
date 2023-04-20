@@ -52,4 +52,33 @@ public class SQSConfig {
 
 ```
 
-In this example, we've created a Spring configuration class (`SQSConfig`) that configures an `SQSMessageListener` and the `SimpleMessageListenerContainer`. The MyMessageListener class implements the `SQSMessageListener<Message>` interface, and its onMessage() method is responsible for processing the messages received from the SQS queue. The `simpleMessageListenerContainer()` method sets up the container with the AmazonSQS client, the listener implementation, and the URL of the SQS queue.
+In this example, we've created a Spring configuration class (`SQSConfig`) that configures an `SQSMessageListener` and the `SimpleMessageListenerContainer`. The MyMessageListener class implements the `SQSMessageListener<Message>` interface, and its onMessage() method is responsible for processing the messages received from the SQS queue. The `simpleMessageListenerContainer()` method sets up the container with the AmazonSQS client, the listener implementation, and the URL of the SQS queue.  
+
+
+The SimpleMessageListenerContainer is initialized when the Spring Boot application starts up. It starts polling for messages automatically and keeps doing so until the application is shut down. The container continuously polls for messages, and once a message is received, it triggers the **onMessage()** method of the **SQSMessageListener<Message>** implementation.
+
+The polling frequency and behavior can be configured by setting various properties of the **SimpleMessageListenerContainer**. Here are some of the properties that control the polling behavior:
+
+1. **waitTimeOut**: The duration (in seconds) the AmazonSQS.receiveMessage() call waits for a message to arrive in the queue before returning. The default value is 20 seconds. You can set it to a lower value if you want to poll more frequently or a higher value if you want to poll less frequently.
+
+2. **maxNumberOfMessages**: The maximum number of messages to be retrieved in a single poll. The default value is 10. You can increase this value if you want to process more messages in a single poll or decrease it if you want to process fewer messages.
+
+To set these properties, you can modify the SimpleMessageListenerContainer configuration in the SQSConfig class like this:
+
+```java
+@Bean
+public SimpleMessageListenerContainer simpleMessageListenerContainer() {
+    SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+    container.setAmazonSqs(amazonSQSAsync);
+    container.setMessageListener(messageListener());
+    container.setQueueUrls("https://sqs.us-west-2.amazonaws.com/123456789012/my-queue");
+
+    // Set polling properties
+    container.setWaitTimeOut(10); // Set wait time out to 10 seconds
+    container.setMaxNumberOfMessages(5); // Set max number of messages to 5
+
+    return container;
+}
+
+```
+In this example, the **waitTimeOut** property is set to 10 seconds, so the **AmazonSQS.receiveMessage()** call will wait for 10 seconds before returning if there are no messages in the queue. The **maxNumberOfMessages** property is set to 5, so up to 5 messages will be retrieved in a single poll.

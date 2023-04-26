@@ -1,6 +1,30 @@
 # Spring Boot
 
 
+## SPRING BOOT LOG PROJECT
+  
+- [springboot_logapp](https://github.com/murchie85/springboot_logapp)
+
+# Spring Specifics
+
+## Externalised Configuration  
+
+If using application.yml or other config, key names should always be kebab case
+```yaml
+- first-name-basis
+```
+
+At runtime this will inject the key values as camel case i.e. `firstNameBasis`
+
+More documentation here 
+
+https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html
+
+
+
+
+# Spring Boot 
+
 
 # @Configuration
 

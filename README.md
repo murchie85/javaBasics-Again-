@@ -28,6 +28,36 @@
 
 ## Specifics
 
+
+## Optional 
+
+When you return an Optional object, you are returning an instance of the Optional class that wraps the actual value (which can be an object or a null). The Optional class is used to better handle cases where a value might not be present, which helps prevent NullPointerExceptions.
+
+set it like this 
+```java 
+ Optional<String> result1 = getString(true);
+
+// .....
+
+// returning 
+
+     public static Optional<String> getString(boolean hasValue) {
+        if (hasValue) {
+            return Optional.of("Hello, world!");
+        } else {
+            return Optional.empty();
+        }
+    }
+```
+
+Return looks like 
+
+```bash
+Result 1: Hello, world!
+Result 2 is empty
+```
+
+
 ## Constructor
 
 Must have the same name as the class
